@@ -17,6 +17,7 @@ const chatInputWrap = document.querySelector("[data-chat-input-wrap]");
 const chatActions = document.querySelector("[data-chat-actions]");
 const chatForm = document.querySelector("[data-chat-form]");
 const chatProgress = document.querySelector("[data-chat-progress]");
+const chatOpenTriggers = document.querySelectorAll("[data-chat-open]");
 
 let lastFocusedTrigger = null;
 let typingTimeoutId = null;
@@ -798,6 +799,15 @@ if (chatToggle && chatPanel && chatClose && chatForm) {
   chatClose.addEventListener("click", closeChat);
   chatForm.addEventListener("submit", handleFormSubmit);
   closeChat();
+}
+
+if (chatOpenTriggers.length > 0) {
+  chatOpenTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      openChat();
+    });
+  });
 }
 
 const observer = new IntersectionObserver(
