@@ -7,6 +7,8 @@
   --muted: #6a5844;
   --accent: #8a5a2d;
   --accent-strong: #593618;
+  --header-red: #a31318;
+  --header-red-strong: #8d1014;
   --shadow: 0 24px 70px rgba(59, 40, 18, 0.12);
   --radius-lg: 28px;
   --radius-md: 22px;
@@ -74,10 +76,10 @@ img {
   top: 16px;
   z-index: 20;
   backdrop-filter: blur(20px);
-  background: rgba(255, 250, 242, 0.75);
-  border: 1px solid rgba(89, 54, 24, 0.08);
+  background: linear-gradient(180deg, var(--header-red) 0%, var(--header-red-strong) 100%);
+  border: 1px solid rgba(255, 241, 232, 0.16);
   border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(59, 40, 18, 0.08);
+  box-shadow: 0 18px 36px rgba(77, 8, 12, 0.24);
 }
 
 .brand,
@@ -88,15 +90,18 @@ img {
 }
 
 .brand-mark {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
-  color: #f7efe1;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  width: auto;
+  height: 72px;
+  display: block;
+  flex: 0 0 auto;
+  max-width: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 24px rgba(53, 9, 12, 0.18);
+}
+
+.footer-brand .brand-mark {
+  width: auto;
+  height: 86px;
 }
 
 .brand-copy,
@@ -116,10 +121,11 @@ img {
 
 .brand-copy strong {
   font-size: 1.1rem;
+  color: #fff8f0;
 }
 
 .brand-copy span {
-  color: var(--muted);
+  color: rgba(255, 242, 233, 0.82);
   font-size: 0.9rem;
 }
 
@@ -127,19 +133,20 @@ img {
   display: flex;
   align-items: center;
   gap: 22px;
-  color: var(--muted);
+  color: rgba(255, 243, 235, 0.92);
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  color: var(--text);
+  color: #ffffff;
 }
 
 .nav-cta {
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--text);
-  color: #f8f3ea;
+  background: #ded9d7;
+  color: #74232a;
+  font-weight: 700;
 }
 
 .menu-toggle {
@@ -147,8 +154,8 @@ img {
   border: 0;
   border-radius: 999px;
   padding: 10px 14px;
-  background: var(--surface-strong);
-  color: var(--text);
+  background: rgba(255, 248, 241, 0.16);
+  color: #fff8f0;
 }
 
 .hero,
@@ -255,23 +262,26 @@ img {
 }
 
 .hero-visual {
-  position: relative;
   min-height: 600px;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 24px;
   border-radius: 34px;
   overflow: hidden;
+  background: rgba(255, 249, 240, 0.76);
 }
 
 .hero-visual img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 28px;
 }
 
 .hero-badge {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
+  position: relative;
   padding: 22px;
   border-radius: var(--radius-md);
   background: rgba(255, 248, 239, 0.88);
@@ -313,6 +323,19 @@ img {
   padding: 22px;
   border-radius: var(--radius-md);
   background: var(--surface);
+}
+
+.practice-card {
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.practice-card:hover,
+.practice-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(89, 54, 24, 0.18);
+  background: rgba(255, 250, 244, 0.94);
+  box-shadow: 0 18px 40px rgba(59, 40, 18, 0.14);
 }
 
 .quote-card {
@@ -437,6 +460,37 @@ img {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 0.96;
+}
+
+.modal-body p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.history-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.05fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.history-copy {
+  display: grid;
+  gap: 16px;
+}
+
+.history-copy p {
+  margin: 0;
+}
+
+.modal-figure {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  border-radius: 20px;
+  object-fit: contain;
+  box-shadow: 0 18px 34px rgba(39, 22, 10, 0.12);
 }
 
 .modal-eyebrow {
@@ -962,6 +1016,12 @@ body.modal-open {
     bottom: calc(100% + 10px);
     width: min(420px, calc(100vw - 20px));
     height: min(720px, calc(100vh - 96px));
+  }
+}
+
+@media (max-width: 760px) {
+  .history-layout {
+    grid-template-columns: 1fr;
   }
 }
 

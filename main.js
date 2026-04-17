@@ -22,7 +22,7 @@ const chatOpenTriggers = document.querySelectorAll("[data-chat-open]");
 let lastFocusedTrigger = null;
 let typingTimeoutId = null;
 
-const WHATSAPP_NUMBER = "5543996160070";
+const WHATSAPP_NUMBER = "5543998150124";
 
 const triageFlows = {
   previdenciario: {
@@ -412,22 +412,33 @@ const closeModal = () => {
   }
 };
 
+const openModalFromTrigger = (trigger) => {
+  const templateId = trigger.getAttribute("data-modal-target");
+  const template = templateId ? document.getElementById(templateId) : null;
+
+  if (!(template instanceof HTMLTemplateElement) || !modalContent || !modalBackdrop || !modalClose) {
+    return;
+  }
+
+  lastFocusedTrigger = trigger;
+  modalContent.innerHTML = "";
+  modalContent.append(template.content.cloneNode(true));
+  modalBackdrop.hidden = false;
+  document.body.classList.add("modal-open");
+  modalClose.focus();
+};
+
 if (modalBackdrop && modalContent && modalClose) {
   modalTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
-      const templateId = trigger.getAttribute("data-modal-target");
-      const template = templateId ? document.getElementById(templateId) : null;
+      openModalFromTrigger(trigger);
+    });
 
-      if (!(template instanceof HTMLTemplateElement)) {
-        return;
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModalFromTrigger(trigger);
       }
-
-      lastFocusedTrigger = trigger;
-      modalContent.innerHTML = "";
-      modalContent.append(template.content.cloneNode(true));
-      modalBackdrop.hidden = false;
-      document.body.classList.add("modal-open");
-      modalClose.focus();
     });
   });
 
