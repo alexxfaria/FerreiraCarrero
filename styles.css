@@ -538,6 +538,31 @@ body.modal-open {
   flex: 1;
 }
 
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--text);
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(89, 54, 24, 0.14);
+  background: rgba(255, 250, 242, 0.86);
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
 .footer-bottom {
   margin-top: 24px;
   padding-top: 20px;
