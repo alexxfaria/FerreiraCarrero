@@ -354,24 +354,48 @@
       </div>
     </template>
 
-    <a
-      class="whatsapp-float"
-      href="https://wa.me/5543996160070"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Falar no WhatsApp"
-    >
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path
-          fill="currentColor"
-          d="M19.11 17.19c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.85 1.08-.16.19-.31.21-.59.07-.28-.14-1.16-.43-2.22-1.36-.82-.73-1.38-1.63-1.54-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.33.43-.49.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.61-1.47-.83-2.02-.22-.52-.44-.45-.61-.46h-.52c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.72 1.14 2.91c.14.19 1.95 3 4.82 4.08.68.3 1.21.47 1.62.6.68.22 1.29.19 1.78.12.54-.08 1.64-.67 1.87-1.31.23-.63.23-1.18.16-1.31-.07-.12-.26-.19-.54-.33Z"
-        />
-        <path
-          fill="currentColor"
-          d="M16.02 3.2c-7.06 0-12.8 5.68-12.8 12.67 0 2.23.59 4.41 1.71 6.34L3.1 28.8l6.8-1.78a12.9 12.9 0 0 0 6.12 1.56h.01c7.06 0 12.8-5.68 12.8-12.67S23.08 3.2 16.02 3.2Zm0 23.25h-.01a10.8 10.8 0 0 1-5.51-1.51l-.39-.23-4.04 1.06 1.08-3.92-.25-.4a10.52 10.52 0 0 1-1.62-5.55c0-5.79 4.75-10.5 10.6-10.5 2.83 0 5.49 1.09 7.49 3.06a10.4 10.4 0 0 1 3.12 7.44c0 5.79-4.76 10.5-10.61 10.5Z"
-        />
-      </svg>
-    </a>
+    <div class="chat-widget" data-chat-widget>
+      <section class="chat-panel" hidden data-chat-panel aria-label="Triagem inicial">
+        <header class="chat-header">
+          <div>
+            <p class="chat-eyebrow">Triagem inicial</p>
+            <strong>Atendimento Ferreira Carrero</strong>
+            <span>Responda algumas perguntas e enviaremos um resumo pronto no WhatsApp.</span>
+          </div>
+          <button class="chat-close" type="button" aria-label="Fechar chat" data-chat-close>Fechar</button>
+        </header>
+
+        <div class="chat-progress" aria-hidden="true">
+          <div class="chat-progress-bar" data-chat-progress></div>
+        </div>
+
+        <div class="chat-history" data-chat-history></div>
+
+        <form class="chat-composer" data-chat-form>
+          <div class="chat-options" data-chat-options></div>
+          <div class="chat-input-wrap" data-chat-input-wrap></div>
+          <div class="chat-actions" data-chat-actions></div>
+        </form>
+      </section>
+
+      <button
+        class="whatsapp-float"
+        type="button"
+        aria-label="Abrir triagem de atendimento"
+        data-chat-toggle
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M19.11 17.19c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.85 1.08-.16.19-.31.21-.59.07-.28-.14-1.16-.43-2.22-1.36-.82-.73-1.38-1.63-1.54-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.33.43-.49.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.61-1.47-.83-2.02-.22-.52-.44-.45-.61-.46h-.52c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.72 1.14 2.91c.14.19 1.95 3 4.82 4.08.68.3 1.21.47 1.62.6.68.22 1.29.19 1.78.12.54-.08 1.64-.67 1.87-1.31.23-.63.23-1.18.16-1.31-.07-.12-.26-.19-.54-.33Z"
+          />
+          <path
+            fill="currentColor"
+            d="M16.02 3.2c-7.06 0-12.8 5.68-12.8 12.67 0 2.23.59 4.41 1.71 6.34L3.1 28.8l6.8-1.78a12.9 12.9 0 0 0 6.12 1.56h.01c7.06 0 12.8-5.68 12.8-12.67S23.08 3.2 16.02 3.2Zm0 23.25h-.01a10.8 10.8 0 0 1-5.51-1.51l-.39-.23-4.04 1.06 1.08-3.92-.25-.4a10.52 10.52 0 0 1-1.62-5.55c0-5.79 4.75-10.5 10.6-10.5 2.83 0 5.49 1.09 7.49 3.06a10.4 10.4 0 0 1 3.12 7.44c0 5.79-4.76 10.5-10.61 10.5Z"
+          />
+        </svg>
+      </button>
+    </div>
 
     <script src="./main.js"></script>
   </body>
